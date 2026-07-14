@@ -6,6 +6,9 @@ import { initMagnetic } from './modules/magnetic.js';
 import { initHeroParticles } from './modules/hero-particles.js';
 import { initTypewriter } from './modules/hero-typewriter.js';
 import { initPreloader } from './modules/preloader.js';
+import { initSplitHeadings } from './modules/split-headings.js';
+import { initScrollReveals } from './modules/scroll-reveal.js';
+import { initCountUp } from './modules/count-up.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,6 +17,9 @@ initNav();
 initGrain();
 initCursor();
 initHeroParticles();
+initSplitHeadings();
+initScrollReveals();
+initCountUp();
 
 initPreloader(() => {
   initTypewriter();
