@@ -680,6 +680,162 @@ body.has-custom-cursor textarea {
 }
 
 /* ============================================
+   PROJECTS
+   ============================================ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 56px;
+}
+.project-card {
+  position: relative;
+  padding: clamp(32px, 4vw, 44px);
+  background: var(--bg-2);
+}
+.project-border-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.project-border-svg rect {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1;
+}
+.project-title {
+  font-size: clamp(24px, 2.2vw, 29px);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.project-tagline {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+.tag {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--text-secondary);
+}
+.project-details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: color var(--dur-fast) var(--ease-out-3);
+}
+.project-details-link:hover,
+.project-details-link:focus-visible {
+  color: var(--gold-hover);
+}
+
+@media (max-width: 860px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   PROJECT MODALS
+   ============================================ */
+body.modal-open {
+  overflow: hidden;
+}
+.project-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-base) var(--ease-out-3), visibility var(--dur-base);
+}
+.project-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.project-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.project-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: rgba(22, 22, 22, 0.92);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  padding: clamp(32px, 5vw, 52px) clamp(28px, 5vw, 44px);
+  transform: translateY(24px) scale(0.98);
+  opacity: 0;
+  transition: transform var(--dur-base) var(--ease-out-3), opacity var(--dur-base) var(--ease-out-3);
+}
+.project-modal.is-open .project-modal-panel {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 30px;
+  line-height: 1;
+  color: var(--gold);
+  transition: color var(--dur-fast) var(--ease-out-3);
+}
+.modal-close:hover,
+.modal-close:focus-visible {
+  color: var(--gold-hover);
+}
+.project-modal h3 {
+  font-size: clamp(24px, 2.6vw, 30px);
+  margin-bottom: 20px;
+  padding-right: 32px;
+}
+.project-modal p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.project-modal .modal-links {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.project-modal .modal-links a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.project-modal .modal-links a:hover {
+  color: var(--gold-hover);
+}
+
+/* ============================================
    REDUCED MOTION OVERRIDES
    ============================================ */
 @media (prefers-reduced-motion: reduce) {

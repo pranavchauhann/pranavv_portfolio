@@ -9,6 +9,8 @@ import { initPreloader } from './modules/preloader.js';
 import { initSplitHeadings } from './modules/split-headings.js';
 import { initScrollReveals } from './modules/scroll-reveal.js';
 import { initCountUp } from './modules/count-up.js';
+import { initProjectBorders } from './modules/project-borders.js';
+import { initProjectModals } from './modules/project-modals.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +22,8 @@ initHeroParticles();
 initSplitHeadings();
 initScrollReveals();
 initCountUp();
+initProjectBorders();
+initProjectModals();
 
 initPreloader(() => {
   initTypewriter();
