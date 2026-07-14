@@ -11,6 +11,7 @@ import { initScrollReveals } from './modules/scroll-reveal.js';
 import { initCountUp } from './modules/count-up.js';
 import { initProjectBorders } from './modules/project-borders.js';
 import { initProjectModals } from './modules/project-modals.js';
+import { initPhotoParallax } from './modules/photo-parallax.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +25,7 @@ initScrollReveals();
 initCountUp();
 initProjectBorders();
 initProjectModals();
+initPhotoParallax();
 
 initPreloader(() => {
   initTypewriter();
