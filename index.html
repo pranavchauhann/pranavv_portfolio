@@ -5,291 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pranav Chauhan — Software Developer · Data Scientist · Photographer</title>
 <meta name="description" content="Portfolio of Pranav Chauhan — full-stack developer, data scientist, and photographer." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23C9A84C' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-  /* ============================================
-     DESIGN TOKENS
-     ============================================ */
-  :root {
-    --bg-0: #0a0a0a;
-    --bg-1: #0d0d0d;
-    --bg-2: #161616;
-    --gold: #C9A84C;
-    --gold-hover: #E8C77D;
-    --text-primary: #F0EDE4;
-    --text-secondary: #888888;
+<link rel="stylesheet" href="css/style.css">
 
-    --font-serif: 'Cormorant Garamond', serif;
-    --font-sans: 'Inter', sans-serif;
-
-    --nav-height: 84px;
-    --container-max: 1200px;
-    --edge-pad: clamp(24px, 6vw, 96px);
-
-    --ease-out-3: cubic-bezier(0.16, 1, 0.3, 1);
-    --dur-fast: 0.3s;
-    --dur-base: 0.6s;
-    --dur-slow: 0.9s;
-  }
-
-  /* ============================================
-     RESET
-     ============================================ */
-  *, *::before, *::after { box-sizing: border-box; }
-  html {
-    scroll-behavior: auto; /* Lenis handles smooth scroll */
-  }
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: var(--bg-0);
-    color: var(--text-primary);
-    font-family: var(--font-sans);
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
-  }
-  h1, h2, h3, h4 {
-    font-family: var(--font-serif);
-    font-weight: 500;
-    margin: 0;
-    color: var(--text-primary);
-  }
-  p { margin: 0; }
-  a { color: inherit; text-decoration: none; }
-  ul { list-style: none; margin: 0; padding: 0; }
-  img { max-width: 100%; display: block; }
-  button {
-    font-family: inherit;
-    background: none;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-  }
-
-  /* Respect Lenis: body gets height auto, html/body managed by lenis class */
-  html.lenis, html.lenis body {
-    height: auto;
-  }
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-
-  /* Focus states — accessibility, must survive custom cursor */
-  a:focus-visible,
-  button:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
-  }
-
-  ::selection {
-    background: var(--gold);
-    color: var(--bg-0);
-  }
-
-  .container {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--edge-pad);
-  }
-
-  section {
-    position: relative;
-  }
-
-  /* ============================================
-     GRAIN OVERLAY
-     ============================================ */
-  .grain-overlay {
-    position: fixed;
-    inset: -10px;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    pointer-events: none;
-    z-index: 9000;
-    opacity: 0.04;
-    mix-blend-mode: overlay;
-    animation: grain-jitter 1.4s steps(8) infinite;
-  }
-  @keyframes grain-jitter {
-    0%   { transform: translate(0, 0); }
-    12.5%  { transform: translate(-1%, 1%); }
-    25%  { transform: translate(1%, -1%); }
-    37.5%  { transform: translate(-1%, -1%); }
-    50%  { transform: translate(1%, 1%); }
-    62.5%  { transform: translate(-2%, 0%); }
-    75%  { transform: translate(2%, -1%); }
-    87.5%  { transform: translate(0%, 2%); }
-    100% { transform: translate(0, 0); }
-  }
-
-  /* ============================================
-     NAVBAR
-     ============================================ */
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--nav-height);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    background: transparent;
-    transition: background var(--dur-base) var(--ease-out-3),
-                backdrop-filter var(--dur-base) var(--ease-out-3),
-                border-color var(--dur-base) var(--ease-out-3);
-    border-bottom: 1px solid transparent;
-  }
-  .navbar.is-scrolled {
-    background: rgba(10, 10, 10, 0.6);
-    backdrop-filter: blur(16px) saturate(140%);
-    -webkit-backdrop-filter: blur(16px) saturate(140%);
-    border-bottom: 1px solid rgba(201, 168, 76, 0.12);
-  }
-  .navbar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-  .nav-logo {
-    font-family: var(--font-serif);
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 0.02em;
-  }
-  .nav-links {
-    display: flex;
-    gap: clamp(24px, 3vw, 48px);
-  }
-  .nav-links a {
-    position: relative;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text-primary);
-    padding: 6px 2px;
-  }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0%;
-    height: 1px;
-    background: var(--gold);
-    transition: width var(--dur-fast) var(--ease-out-3);
-  }
-  .nav-links a:hover::after,
-  .nav-links a:focus-visible::after {
-    width: 100%;
-  }
-  .nav-links a:hover,
-  .nav-links a:focus-visible {
-    color: var(--gold-hover);
-  }
-
-  .nav-toggle {
-    display: none;
-    width: 32px;
-    height: 22px;
-    position: relative;
-    z-index: 1100;
-  }
-  .nav-toggle span {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: var(--text-primary);
-    transition: transform var(--dur-fast) var(--ease-out-3), opacity var(--dur-fast) var(--ease-out-3), background var(--dur-fast);
-  }
-  .nav-toggle span:nth-child(1) { top: 0; }
-  .nav-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
-  .nav-toggle span:nth-child(3) { bottom: 0; }
-  .nav-toggle.is-open span { background: var(--gold); }
-  .nav-toggle.is-open span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
-  .nav-toggle.is-open span:nth-child(2) { opacity: 0; }
-  .nav-toggle.is-open span:nth-child(3) { top: 50%; transform: translateY(-50%) rotate(-45deg); }
-
-  .mobile-menu {
-    position: fixed;
-    inset: 0;
-    background: var(--bg-0);
-    z-index: 1050;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--dur-base) var(--ease-out-3), visibility var(--dur-base);
-  }
-  .mobile-menu.is-open {
-    opacity: 1;
-    visibility: visible;
-  }
-  .mobile-menu a {
-    font-family: var(--font-serif);
-    font-size: 36px;
-    color: var(--text-primary);
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  .mobile-menu.is-open a {
-    animation: mm-in var(--dur-base) var(--ease-out-3) forwards;
-  }
-  .mobile-menu.is-open a:nth-child(1) { animation-delay: 0.05s; }
-  .mobile-menu.is-open a:nth-child(2) { animation-delay: 0.15s; }
-  .mobile-menu.is-open a:nth-child(3) { animation-delay: 0.25s; }
-  .mobile-menu.is-open a:nth-child(4) { animation-delay: 0.35s; }
-  .mobile-menu.is-open a:nth-child(5) { animation-delay: 0.45s; }
-  @keyframes mm-in {
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .mobile-menu a:hover { color: var(--gold); }
-
-  @media (max-width: 860px) {
-    .nav-links { display: none; }
-    .nav-toggle { display: block; }
-  }
-
-  /* ============================================
-     PLACEHOLDER SECTION STYLES (temporary, phase 1)
-     ============================================ */
-  .phase-placeholder {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-  .phase-placeholder h2 {
-    font-size: clamp(32px, 5vw, 56px);
-    color: var(--text-primary);
-  }
-  .phase-placeholder p {
-    color: var(--text-secondary);
-    font-size: 14px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-</style>
 </head>
-<body>
+<body class="is-loading">
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-count" id="preloaderCount">0</div>
+  <div class="preloader-bar"><div class="preloader-bar-fill" id="preloaderFill"></div></div>
+</div>
+<div class="preloader-panel top" id="preloaderPanelTop"></div>
+<div class="preloader-panel bottom" id="preloaderPanelBottom"></div>
+
+<!-- Custom cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
 <!-- Grain overlay -->
 <svg class="grain-overlay" xmlns="http://www.w3.org/2000/svg">
@@ -307,13 +44,13 @@
 <!-- Navbar -->
 <header class="navbar" id="navbar">
   <div class="container">
-    <a href="#hero" class="nav-logo" data-hover>PC.</a>
+    <a href="#hero" class="nav-logo" data-hover data-magnetic data-magnetic-strength="0.5">PC.</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#about" data-hover>About</a>
-      <a href="#projects" data-hover>Projects</a>
-      <a href="#business" data-hover>Business</a>
-      <a href="#photography" data-hover>Photography</a>
-      <a href="#contact" data-hover>Contact</a>
+      <a href="#about" data-hover data-magnetic>About</a>
+      <a href="#projects" data-hover data-magnetic>Projects</a>
+      <a href="#business" data-hover data-magnetic>Business</a>
+      <a href="#photography" data-hover data-magnetic>Photography</a>
+      <a href="#contact" data-hover data-magnetic>Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -331,9 +68,23 @@
 </nav>
 
 <main>
-  <section id="hero" class="phase-placeholder">
-    <p>Phase 1 — Skeleton</p>
-    <h2>Hero section — built in Phase 2</h2>
+  <section id="hero" class="hero">
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-inner container">
+      <h1 class="hero-name" id="heroName">
+        <span class="word-mask"><span class="word">PRANAV</span></span>
+        <span class="word-mask"><span class="word">CHAUHAN</span></span>
+      </h1>
+      <div class="hero-type-line" id="heroTypeLine">
+        <span class="hero-type-prefix">I'm a</span>
+        <span class="hero-typewriter" id="heroTypewriter">Software Developer</span><span class="hero-caret" aria-hidden="true"></span>
+      </div>
+      <div class="hero-ctas" id="heroCtas">
+        <a href="#projects" class="btn btn-outline" data-magnetic data-hover>View Projects</a>
+        <a href="#contact" class="btn btn-outline" data-magnetic data-hover>Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-scroll-cue" aria-hidden="true"><span></span></div>
   </section>
   <section id="about" class="phase-placeholder">
     <p>Placeholder</p>
@@ -363,86 +114,20 @@
 <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="module" src="js/main.js"></script>
 
-<script>
-(function () {
-  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var isTouch = window.matchMedia('(pointer: coarse)').matches;
-
-  /* ---------- Lenis smooth scroll ---------- */
-  var lenis = null;
-  if (!prefersReduced) {
-    lenis = new Lenis({
-      duration: 1.1,
-      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-      smoothWheel: true,
-      touchMultiplier: 1.2,
-    });
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    if (window.gsap && window.ScrollTrigger) {
-      gsap.registerPlugin(ScrollTrigger);
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-      gsap.ticker.lagSmoothing(0);
-    }
-
-    // anchor links -> lenis scrollTo
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        var id = link.getAttribute('href');
-        if (id.length > 1 && document.querySelector(id)) {
-          e.preventDefault();
-          lenis.scrollTo(id, { offset: 0, duration: 1.4 });
-        }
-      });
-    });
-  }
-
-  /* ---------- Navbar glass on scroll ---------- */
-  var navbar = document.getElementById('navbar');
-  function updateNav() {
-    if (window.scrollY > 50) {
-      navbar.classList.add('is-scrolled');
-    } else {
-      navbar.classList.remove('is-scrolled');
-    }
-  }
-  updateNav();
-  window.addEventListener('scroll', updateNav, { passive: true });
-
-  /* ---------- Mobile menu ---------- */
-  var navToggle = document.getElementById('navToggle');
-  var mobileMenu = document.getElementById('mobileMenu');
-  function closeMobileMenu() {
-    navToggle.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    mobileMenu.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-  navToggle.addEventListener('click', function () {
-    var open = navToggle.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    mobileMenu.classList.toggle('is-open', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  mobileMenu.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', closeMobileMenu);
-  });
-
-  /* ---------- Grain: disable animation if reduced motion ---------- */
-  if (prefersReduced) {
-    var grain = document.querySelector('.grain-overlay');
-    if (grain) grain.style.animation = 'none';
-  }
-
-  window.__portfolioState = { lenis: lenis, prefersReduced: prefersReduced, isTouch: isTouch };
-})();
-</script>
+<!--
+  No JS / module-unsupporting fallback: reveal hero content immediately
+  and unlock scroll so the page is fully usable without JS.
+-->
+<noscript>
+  <style>
+    #preloader, .preloader-panel, .cursor-dot, .cursor-ring { display: none !important; }
+    body.is-loading { overflow: visible !important; height: auto !important; }
+    .word-mask .word { transform: none !important; }
+    .hero-type-line, .hero-ctas { opacity: 1 !important; transform: none !important; }
+  </style>
+</noscript>
 
 </body>
 </html>
