@@ -24,10 +24,6 @@
 <div class="preloader-panel top" id="preloaderPanelTop"></div>
 <div class="preloader-panel bottom" id="preloaderPanelBottom"></div>
 
-<!-- Custom cursor -->
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
 <!-- Grain overlay -->
 <svg class="grain-overlay" xmlns="http://www.w3.org/2000/svg">
   <filter id="grain-filter">
@@ -44,13 +40,13 @@
 <!-- Navbar -->
 <header class="navbar" id="navbar">
   <div class="container">
-    <a href="#hero" class="nav-logo" data-hover data-magnetic data-magnetic-strength="0.5">PC.</a>
+    <a href="#hero" class="nav-logo" data-magnetic data-magnetic-strength="0.5">PC.</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#about" data-hover data-magnetic>About</a>
-      <a href="#projects" data-hover data-magnetic>Projects</a>
-      <a href="#business" data-hover data-magnetic>Business</a>
-      <a href="#photography" data-hover data-magnetic>Photography</a>
-      <a href="#contact" data-hover data-magnetic>Contact</a>
+      <a href="#about" data-magnetic>About</a>
+      <a href="#projects" data-magnetic>Projects</a>
+      <a href="#business" data-magnetic>Business</a>
+      <a href="#photography" data-magnetic>Photography</a>
+      <a href="#contact" data-magnetic>Contact</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -80,8 +76,8 @@
         <span class="hero-typewriter" id="heroTypewriter">Software Developer</span><span class="hero-caret" aria-hidden="true"></span>
       </div>
       <div class="hero-ctas" id="heroCtas">
-        <a href="#projects" class="btn btn-outline" data-magnetic data-hover>View Projects</a>
-        <a href="#contact" class="btn btn-outline" data-magnetic data-hover>Get in Touch</a>
+        <a href="#projects" class="btn btn-outline" data-magnetic>View Projects</a>
+        <a href="#contact" class="btn btn-outline" data-magnetic>Get in Touch</a>
       </div>
     </div>
     <div class="hero-scroll-cue" aria-hidden="true"><span></span></div>
@@ -164,7 +160,7 @@
             <div class="project-tags">
               <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span>
             </div>
-            <button type="button" class="project-details-link" data-magnetic data-hover data-modal-target="modal-hrms">Details →</button>
+            <button type="button" class="project-details-link" data-magnetic data-modal-target="modal-hrms">Details →</button>
           </div>
         </article>
 
@@ -176,7 +172,7 @@
             <div class="project-tags">
               <span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">Streamlit</span>
             </div>
-            <button type="button" class="project-details-link" data-magnetic data-hover data-modal-target="modal-lstm">Details →</button>
+            <button type="button" class="project-details-link" data-magnetic data-modal-target="modal-lstm">Details →</button>
           </div>
         </article>
 
@@ -188,7 +184,7 @@
             <div class="project-tags">
               <span class="tag">Power BI</span><span class="tag">Excel</span>
             </div>
-            <button type="button" class="project-details-link" data-magnetic data-hover data-modal-target="modal-rides">Details →</button>
+            <button type="button" class="project-details-link" data-magnetic data-modal-target="modal-rides">Details →</button>
           </div>
         </article>
 
@@ -200,7 +196,7 @@
             <div class="project-tags">
               <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">GSAP</span><span class="tag">Lenis</span>
             </div>
-            <button type="button" class="project-details-link" data-magnetic data-hover data-modal-target="modal-portfolio">Details →</button>
+            <button type="button" class="project-details-link" data-magnetic data-modal-target="modal-portfolio">Details →</button>
           </div>
         </article>
       </div>
@@ -211,7 +207,7 @@
   <div class="project-modal" id="modal-hrms" role="dialog" aria-modal="true" aria-labelledby="modal-hrms-title">
     <div class="project-modal-backdrop"></div>
     <div class="project-modal-panel">
-      <button type="button" class="modal-close" data-hover aria-label="Close">&times;</button>
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
       <h3 id="modal-hrms-title">Enterprise HRMS Platform</h3>
       <p>Built the HR domain of an enterprise business-management platform modeled on Keka HRMS: 7+ Flutter submodules (Dashboard, Employee Management, Leave, Attendance, Performance) with card-based UI, plus Java/Spring Boot backend services — attendance regularization, leave balance/ledger APIs, expense approval workflows, and payroll APIs, with JPA repositories, Liquibase migrations, and unit tests. Also shipped the iOS build via Xcode.</p>
     </div>
@@ -220,12 +216,12 @@
   <div class="project-modal" id="modal-lstm" role="dialog" aria-modal="true" aria-labelledby="modal-lstm-title">
     <div class="project-modal-backdrop"></div>
     <div class="project-modal-panel">
-      <button type="button" class="modal-close" data-hover aria-label="Close">&times;</button>
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
       <h3 id="modal-lstm-title">Indian Equity Price Forecasting — LSTM vs. Baselines</h3>
       <p>End-to-end ML pipeline forecasting next-day prices for 40 NSE stocks across 4 sectors, comparing LSTM against Naive, Linear Regression, and ARIMA with leakage-free chronological splits. Finding: LSTM matched simpler models on directional accuracy (~50% — a coin flip) while producing 3-4x higher price error, traced to output-scaler extrapolation failure on prices beyond the training range. Deployed as an interactive Streamlit dashboard.</p>
       <div class="modal-links">
-        <a href="https://sector-comparative-equity-lstm.streamlit.app" target="_blank" rel="noopener" data-hover>Live Streamlit app →</a>
-        <a href="https://github.com/pranavchauhann/sector-comparative-equity-lstm" target="_blank" rel="noopener" data-hover>GitHub repo →</a>
+        <a href="https://sector-comparative-equity-lstm.streamlit.app" target="_blank" rel="noopener">Live Streamlit app →</a>
+        <a href="https://github.com/pranavchauhann/sector-comparative-equity-lstm" target="_blank" rel="noopener">GitHub repo →</a>
       </div>
     </div>
   </div>
@@ -233,7 +229,7 @@
   <div class="project-modal" id="modal-rides" role="dialog" aria-modal="true" aria-labelledby="modal-rides-title">
     <div class="project-modal-backdrop"></div>
     <div class="project-modal-panel">
-      <button type="button" class="modal-close" data-hover aria-label="Close">&times;</button>
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
       <h3 id="modal-rides-title">Personal Ride-Data Analysis Dashboard</h3>
       <p>Analyzed my personal Uber ride export (47 trips, Sep 2024–Aug 2025): 70% of trips ran the same home→office route; a 36% cancellation rate traced to wait times (~10.8 min average ETA on canceled requests vs ~5.1 min on completed); surge-tagged trips cost ~8% more per mile once trip mix was controlled for.</p>
     </div>
@@ -242,7 +238,7 @@
   <div class="project-modal" id="modal-portfolio" role="dialog" aria-modal="true" aria-labelledby="modal-portfolio-title">
     <div class="project-modal-backdrop"></div>
     <div class="project-modal-panel">
-      <button type="button" class="modal-close" data-hover aria-label="Close">&times;</button>
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
       <h3 id="modal-portfolio-title">This Portfolio</h3>
       <p>Hand-built with plain HTML, CSS, and JavaScript — no frameworks, no build step. Lenis powers the smooth inertia scroll, GSAP and ScrollTrigger drive every scroll-triggered reveal, split-text heading, and magnetic interaction, inspired by techniques from award-winning sites like thewatch.60fps.fr and sharebien.com.</p>
     </div>
@@ -277,14 +273,14 @@
 
       <div class="photography-grid">
         <div class="photo-col">
-          <a class="photo-card" href="https://www.shutterstock.com/image-photo/red-rose-plant-garden-2260444123" target="_blank" rel="noopener" data-hover>
+          <a class="photo-card" href="https://www.shutterstock.com/image-photo/red-rose-plant-garden-2260444123" target="_blank" rel="noopener">
             <img src="images/rose.jpg" alt="Red Rose Plant in a Garden" loading="lazy" width="1001" height="1600" />
             <div class="photo-overlay">
               <span class="photo-title">Red Rose Plant in a Garden</span>
               <span class="photo-link">View on Shutterstock →</span>
             </div>
           </a>
-          <a class="photo-card" href="https://www.shutterstock.com/image-photo/flock-pigeons-flying-park-1833801160" target="_blank" rel="noopener" data-hover>
+          <a class="photo-card" href="https://www.shutterstock.com/image-photo/flock-pigeons-flying-park-1833801160" target="_blank" rel="noopener">
             <img src="images/pigeons.jpg" alt="Flock of Pigeons Flying in a Park" loading="lazy" width="1500" height="1225" />
             <div class="photo-overlay">
               <span class="photo-title">Flock of Pigeons Flying in a Park</span>
@@ -293,14 +289,14 @@
           </a>
         </div>
         <div class="photo-col">
-          <a class="photo-card" href="https://www.shutterstock.com/image-photo/squirrel-eating-garden-2285930737" target="_blank" rel="noopener" data-hover>
+          <a class="photo-card" href="https://www.shutterstock.com/image-photo/squirrel-eating-garden-2285930737" target="_blank" rel="noopener">
             <img src="images/squirrel1.jpg" alt="Squirrel Eating in a Garden" loading="lazy" width="1001" height="1600" />
             <div class="photo-overlay">
               <span class="photo-title">Squirrel Eating in a Garden</span>
               <span class="photo-link">View on Shutterstock →</span>
             </div>
           </a>
-          <a class="photo-card" href="https://www.shutterstock.com/image-photo/adorable-squirrel-exploring-park-2285934427" target="_blank" rel="noopener" data-hover>
+          <a class="photo-card" href="https://www.shutterstock.com/image-photo/adorable-squirrel-exploring-park-2285934427" target="_blank" rel="noopener">
             <img src="images/squirrel.jpg" alt="Adorable Squirrel Exploring in Park" loading="lazy" width="1500" height="1101" />
             <div class="photo-overlay">
               <span class="photo-title">Adorable Squirrel Exploring in Park</span>
@@ -309,7 +305,7 @@
           </a>
         </div>
         <div class="photo-col">
-          <a class="photo-card" href="https://www.shutterstock.com/image-photo/home-decor-tree-lights-1823072579" target="_blank" rel="noopener" data-hover>
+          <a class="photo-card" href="https://www.shutterstock.com/image-photo/home-decor-tree-lights-1823072579" target="_blank" rel="noopener">
             <img src="images/tree.jpg" alt="Home Decor Tree With Lights" loading="lazy" width="1125" height="1600" />
             <div class="photo-overlay">
               <span class="photo-title">Home Decor Tree With Lights</span>
@@ -320,11 +316,62 @@
       </div>
     </div>
   </section>
-  <section id="contact" class="phase-placeholder">
-    <p>Placeholder</p>
-    <h2>Contact — built in Phase 6</h2>
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <div class="contact-info-col">
+        <span class="section-eyebrow">Let's talk</span>
+        <h2 class="section-title">Get in touch</h2>
+        <div class="contact-rows" data-reveal>
+          <a class="contact-row" href="mailto:pranavchauhann@gmail.com" data-magnetic>
+            <span class="contact-row-label">Email</span>
+            <span class="contact-row-value">pranavchauhann@gmail.com</span>
+            <span class="contact-row-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="contact-row" href="tel:8685998979" data-magnetic>
+            <span class="contact-row-label">Phone</span>
+            <span class="contact-row-value">8685998979</span>
+            <span class="contact-row-arrow" aria-hidden="true">→</span>
+          </a>
+          <a class="contact-row" href="https://linkedin.com/in/pranavchauhann" target="_blank" rel="noopener" data-magnetic>
+            <span class="contact-row-label">LinkedIn</span>
+            <span class="contact-row-value">linkedin.com/in/pranavchauhann</span>
+            <span class="contact-row-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden-field"><label>Don't fill this out if you're human: <input name="bot-field" /></label></p>
+
+        <div class="form-field">
+          <input type="text" id="cf-name" name="name" required placeholder=" " autocomplete="name" />
+          <label for="cf-name">Name</label>
+        </div>
+        <div class="form-field">
+          <input type="email" id="cf-email" name="email" required placeholder=" " autocomplete="email" />
+          <label for="cf-email">Email</label>
+        </div>
+        <div class="form-field">
+          <textarea id="cf-message" name="message" rows="5" required placeholder=" "></textarea>
+          <label for="cf-message">Message</label>
+        </div>
+        <button type="submit" class="btn btn-outline" data-magnetic>Send Message</button>
+      </form>
+    </div>
   </section>
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <p class="footer-copy">© 2026 Pranav Chauhan</p>
+    <div class="footer-social">
+      <a href="https://linkedin.com/in/pranavchauhann" target="_blank" rel="noopener" data-magnetic>LinkedIn</a>
+      <a href="mailto:pranavchauhann@gmail.com" data-magnetic>Email</a>
+    </div>
+    <button type="button" class="back-to-top" id="backToTop" data-magnetic>Back to top ↑</button>
+  </div>
+</footer>
 
 <!-- ============================================
      SCRIPTS
@@ -340,7 +387,7 @@
 -->
 <noscript>
   <style>
-    #preloader, .preloader-panel, .cursor-dot, .cursor-ring { display: none !important; }
+    #preloader, .preloader-panel { display: none !important; }
     body.is-loading { overflow: visible !important; height: auto !important; }
     .word-mask .word { transform: none !important; }
     .hero-type-line, .hero-ctas { opacity: 1 !important; transform: none !important; }

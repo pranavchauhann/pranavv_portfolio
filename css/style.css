@@ -335,57 +335,6 @@ body.is-loading {
 }
 
 /* ============================================
-   CUSTOM CURSOR
-   ============================================ */
-.cursor-dot,
-.cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  will-change: transform;
-}
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--gold);
-  transition: opacity 0.2s var(--ease-out-3);
-}
-.cursor-ring {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--gold);
-  opacity: 0.4;
-  background: transparent;
-  transition: width 0.3s var(--ease-out-3), height 0.3s var(--ease-out-3),
-              background-color 0.3s var(--ease-out-3), opacity 0.3s var(--ease-out-3),
-              border-color 0.3s var(--ease-out-3);
-}
-.cursor-ring.is-hovering {
-  width: 60px;
-  height: 60px;
-  background: rgba(201, 168, 76, 0.1);
-  opacity: 1;
-}
-.cursor-dot.is-hidden { opacity: 0; }
-body.has-custom-cursor,
-body.has-custom-cursor a,
-body.has-custom-cursor button {
-  cursor: none;
-}
-body.has-custom-cursor input,
-body.has-custom-cursor textarea {
-  cursor: auto;
-}
-
-@media (pointer: coarse) {
-  .cursor-dot, .cursor-ring { display: none; }
-}
-
-/* ============================================
    BUTTONS
    ============================================ */
 .btn {
@@ -934,6 +883,169 @@ body.modal-open {
 }
 @media (max-width: 600px) {
   .photography-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   CONTACT
+   ============================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  margin-top: 56px;
+  align-items: start;
+}
+.contact-rows {
+  margin-top: 40px;
+}
+.contact-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.contact-row-label {
+  width: 76px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.contact-row-value {
+  flex: 1;
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--text-primary);
+  transition: color var(--dur-fast) var(--ease-out-3);
+}
+.contact-row-arrow {
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity var(--dur-fast) var(--ease-out-3), transform var(--dur-fast) var(--ease-out-3);
+}
+.contact-row:hover .contact-row-arrow,
+.contact-row:focus-visible .contact-row-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+.contact-row:hover .contact-row-value,
+.contact-row:focus-visible .contact-row-value {
+  color: var(--gold-hover);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+}
+.form-field {
+  position: relative;
+  margin-bottom: 36px;
+}
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px 0 10px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--text-primary);
+  transition: border-color var(--dur-fast) var(--ease-out-3);
+}
+.form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.form-field label {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  font-size: 16px;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transform-origin: left top;
+  transition: transform 0.25s var(--ease-out-3), color 0.25s var(--ease-out-3);
+}
+.form-field input:focus + label,
+.form-field input:not(:placeholder-shown) + label,
+.form-field textarea:focus + label,
+.form-field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-22px) scale(0.78);
+  color: var(--gold);
+}
+.hidden-field {
+  position: absolute;
+  left: -9999px;
+}
+.contact-form .btn {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  padding: 44px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-1);
+}
+.footer-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.footer-copy {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.footer-social {
+  display: flex;
+  gap: 24px;
+}
+.footer-social a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: color var(--dur-fast) var(--ease-out-3);
+}
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--gold);
+}
+.back-to-top {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: color var(--dur-fast) var(--ease-out-3);
+}
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  color: var(--gold-hover);
+}
+
+@media (max-width: 600px) {
+  .footer-grid { flex-direction: column; text-align: center; }
 }
 
 /* ============================================

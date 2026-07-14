@@ -1,7 +1,6 @@
 import { initLenis } from './modules/lenis-setup.js';
 import { initNav } from './modules/nav.js';
 import { initGrain } from './modules/grain.js';
-import { initCursor } from './modules/cursor.js';
 import { initMagnetic } from './modules/magnetic.js';
 import { initHeroParticles } from './modules/hero-particles.js';
 import { initTypewriter } from './modules/hero-typewriter.js';
@@ -12,13 +11,13 @@ import { initCountUp } from './modules/count-up.js';
 import { initProjectBorders } from './modules/project-borders.js';
 import { initProjectModals } from './modules/project-modals.js';
 import { initPhotoParallax } from './modules/photo-parallax.js';
+import { initFooter } from './modules/footer.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 window.__lenis = initLenis();
 initNav();
 initGrain();
-initCursor();
 initHeroParticles();
 initSplitHeadings();
 initScrollReveals();
@@ -26,6 +25,7 @@ initCountUp();
 initProjectBorders();
 initProjectModals();
 initPhotoParallax();
+initFooter();
 
 initPreloader(() => {
   initTypewriter();
