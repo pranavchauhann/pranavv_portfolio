@@ -155,6 +155,18 @@
         <article class="project-card">
           <svg class="project-border-svg" aria-hidden="true"><rect /></svg>
           <div class="project-content">
+            <h3 class="project-title">Video2Context — Screen Recordings for Coding Agents</h3>
+            <p class="project-tagline">Open-source CLI that turns a screen recording into timestamped screenshots, speech, and on-screen text that Claude Code, Codex, or Cursor can act on.</p>
+            <div class="project-tags">
+              <span class="tag">Python</span><span class="tag">FFmpeg</span><span class="tag">NumPy</span><span class="tag">Whisper</span><span class="tag">Tesseract</span>
+            </div>
+            <button type="button" class="project-details-link" data-magnetic data-modal-target="modal-v2c">Details →</button>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <svg class="project-border-svg" aria-hidden="true"><rect /></svg>
+          <div class="project-content">
             <h3 class="project-title">Enterprise HRMS Platform</h3>
             <p class="project-tagline">Full-stack HR domain of a multi-module enterprise platform — frontend, backend services, and the iOS build.</p>
             <div class="project-tags">
@@ -204,6 +216,18 @@
   </section>
 
   <!-- Project modals -->
+  <div class="project-modal" id="modal-v2c" role="dialog" aria-modal="true" aria-labelledby="modal-v2c-title">
+    <div class="project-modal-backdrop"></div>
+    <div class="project-modal-panel">
+      <button type="button" class="modal-close" aria-label="Close">&times;</button>
+      <h3 id="modal-v2c-title">Video2Context — Screen Recordings for Coding Agents</h3>
+      <p>A screen recording of a bug or UI feedback is the fastest way to explain a problem, but coding agents can't watch video. Video2Context (the v2c command) samples the recording in one FFmpeg pass, scores frame changes and perceptual hashes in NumPy to keep only the screens that actually changed, transcribes narration locally with faster-whisper, reads on-screen text with Tesseract, and fuses it all into a timestamped Markdown + JSON evidence package the agent reads alongside the screenshots. Local by default with no API keys; a doctor command checks the setup and a 2.5-minute macOS recording processes in about 9 seconds. Fixing frame seeking for variable-frame-rate QuickTime captures was the key correctness win.</p>
+      <div class="modal-links">
+        <a href="https://github.com/pranavchauhann/video2context" target="_blank" rel="noopener">GitHub repo →</a>
+      </div>
+    </div>
+  </div>
+
   <div class="project-modal" id="modal-hrms" role="dialog" aria-modal="true" aria-labelledby="modal-hrms-title">
     <div class="project-modal-backdrop"></div>
     <div class="project-modal-panel">
