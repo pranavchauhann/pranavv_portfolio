@@ -15,6 +15,9 @@ import { initFooter } from './modules/footer.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Fonts load without blocking render, so re-measure trigger positions once they swap in.
+document.fonts?.ready.then(() => ScrollTrigger.refresh());
+
 window.__lenis = initLenis();
 initNav();
 initGrain();
