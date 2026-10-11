@@ -769,6 +769,34 @@ body.modal-open {
   color: var(--text-secondary);
   line-height: 1.8;
 }
+.project-modal p + p,
+.project-modal p + .modal-list,
+.project-modal .modal-list + p {
+  margin-top: 16px;
+}
+.project-modal .modal-list {
+  display: grid;
+  gap: 12px;
+}
+.project-modal .modal-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.project-modal .modal-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 8px;
+  height: 1px;
+  background: var(--gold);
+}
+.project-modal .modal-list strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
 .project-modal .modal-links {
   display: flex;
   gap: 24px;
