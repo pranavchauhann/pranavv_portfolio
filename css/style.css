@@ -51,6 +51,7 @@ p { margin: 0; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; margin: 0; padding: 0; }
 img { max-width: 100%; display: block; }
+picture { display: block; }
 button {
   font-family: inherit;
   background: none;
@@ -567,6 +568,7 @@ body.is-loading {
   aspect-ratio: 4 / 5;
   border: 1px solid rgba(201, 168, 76, 0.15);
 }
+.about-photo picture { height: 100%; }
 .about-photo img {
   width: 100%;
   height: 100%;
@@ -768,6 +770,34 @@ body.modal-open {
 .project-modal p {
   color: var(--text-secondary);
   line-height: 1.8;
+}
+.project-modal p + p,
+.project-modal p + .modal-list,
+.project-modal .modal-list + p {
+  margin-top: 16px;
+}
+.project-modal .modal-list {
+  display: grid;
+  gap: 12px;
+}
+.project-modal .modal-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.project-modal .modal-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85em;
+  width: 8px;
+  height: 1px;
+  background: var(--gold);
+}
+.project-modal .modal-list strong {
+  color: var(--text-primary);
+  font-weight: 500;
 }
 .project-modal .modal-links {
   display: flex;
